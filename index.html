@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Veriden İçgörüye</title>
+  <link rel="stylesheet" href="./style.css">
+  <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+  <script src="data.js"></script>
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+  <nav class="ust-menu">
+    <a href="#hakkinda">Proje</a>
+    <a href="#kavramlar">Kavramlar</a>
+    <a href="#grafikler">Grafikler</a>
+    <a href="#compare">Karşılaştırma</a>
+    <a href="#ai">Data</a>
+    <a href="#kaynaklar">Kaynaklar</a>
+    <button id="temaButonu" onclick="temaDegistir()">🌙</button>
+  </nav>
+
+  <section class="hero">
+    <div class="etiket">Yapay Zeka • Veri • Görselleştirme</div>
+    <h1>Veriden İçgörüye</h1>
+    <p>Yapay zekada veri görselleştirme, istatistiksel analiz ve veri odaklı karar süreçleri.</p>
+    <a href="#grafikler" class="ana-buton">Grafikleri İncele</a>
+  </section>
+
+  <main class="container">
+
+    <section class="card" id="hakkinda">
+      <h2>Proje Hakkında</h2>
+      <p>Bu proje, veri görselleştirmenin yapay zeka sistemlerindeki önemini istatistiksel analizler ve etkileşimli grafikler aracılığıyla incelemektedir.</p>
+      <p>Öğrenci alışkanlıkları ve akademik performans verileri üzerinden değişkenler arasındaki ilişkiler analiz edilmiştir.</p>
+    </section>
+
+    <section class="kavramlar" id="kavramlar">
+      <div class="kavram-kart">
+        <h2>Veri Nedir?</h2>
+        <p>Veri; gözlem, ölçüm ve araştırmalar sonucunda elde edilen ham bilgilerdir. Yapay zeka sistemleri bu verilerden örüntüler öğrenir.</p>
+      </div>
+
+      <div class="kavram-kart">
+        <h2>Yapay Zeka Nedir?</h2>
+        <p>Yapay zeka, bilgisayar sistemlerinin öğrenme, problem çözme ve tahmin üretme süreçlerini gerçekleştirmesini amaçlayan teknoloji alanıdır.</p>
+      </div>
+
+      <div class="kavram-kart">
+        <h2>Veri Görselleştirme</h2>
+        <p>Veri görselleştirme; karmaşık veri yapılarını grafikler aracılığıyla anlaşılır hale getirme sürecidir.</p>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Veriden İçgörüye Yolculuk</h2>
+
+      <div class="yolculuk-grid">
+        <div class="yolculuk-adim">
+          <span>01</span>
+          <h3>Veri Toplama</h3>
+          <p>Öğrenci alışkanlıkları ve akademik performans verileri analiz için hazırlanır.</p>
+        </div>
+
+        <div class="yolculuk-adim">
+          <span>02</span>
+          <h3>Görselleştirme</h3>
+          <p>Dağılımlar, ilişkiler ve korelasyonlar grafikler aracılığıyla görünür hale gelir.</p>
+        </div>
+
+        <div class="yolculuk-adim">
+          <span>03</span>
+          <h3>Yorumlama</h3>
+          <p>Grafikler üzerinden değişkenler arasındaki örüntüler ve akademik etkiler yorumlanır.</p>
+        </div>
+
+        <div class="yolculuk-adim">
+          <span>04</span>
+          <h3>İçgörü</h3>
+          <p>Ham veri, karar süreçlerini destekleyen anlamlı bilgiye dönüşür.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Veri Seti Özeti</h2>
+      <div class="istatistik-grid">
+        <div class="istatistik-kart"><h3>1000+</h3><p>Gözlem</p></div>
+        <div class="istatistik-kart"><h3>31</h3><p>Değişken</p></div>
+        <div class="istatistik-kart"><h3>5</h3><p>Grafik Türü</p></div>
+        <div class="istatistik-kart"><h3>1</h3><p>AI Asistan</p></div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Grafik Rehberi</h2>
+      <div class="guide-grid">
+        <div class="guide-item"><h3>Histogram</h3><p>Sayısal bir değişkenin hangi aralıklarda yoğunlaştığını gösterir.</p></div>
+        <div class="guide-item"><h3>Serpilme Grafiği</h3><p>İki sayısal değişken arasındaki ilişkiyi görselleştirir.</p></div>
+        <div class="guide-item"><h3>Isı Haritası</h3><p>Değişkenler arasındaki korelasyonları renk yoğunluğu ile gösterir.</p></div>
+        <div class="guide-item"><h3>Kutu Grafiği</h3><p>Medyan, çeyrekler ve aykırı değerleri gösterir.</p></div>
+      </div>
+    </section>
+
+    <section class="card" id="grafikler">
+      <h2>İnteraktif Grafikler</h2>
+      <p>Grafiklerin üzerine gelerek değerleri inceleyebilir, yakınlaştırma yapabilir ve ilişkileri keşfedebilirsiniz.</p>
+
+      <div class="grafik-etiketleri">
+        <span>Korelasyon Analizi</span>
+        <span>Dağılım Analizi</span>
+        <span>İlişki Analizi</span>
+        <span>Aykırı Değer Analizi</span>
+      </div>
+
+      <div class="graphs">
+        <iframe src="graphs/heatmap.html"></iframe>
+        <iframe src="graphs/scatter.html"></iframe>
+        <iframe src="graphs/histogram.html"></iframe>
+        <iframe src="graphs/boxplot.html"></iframe>
+        <iframe src="graphs/bar_chart.html"></iframe>
+      </div>
+    </section>
+
+    <section class="card" id="compare">
+      <h2>Veri Karşılaştırma Paneli</h2>
+      <p>Değişkenleri ve grafik türünü seçerek kendi analizini oluştur.</p>
+
+      <div class="compare-panel">
+        <select id="xSelect">
+          <option value="study_hours_per_day">Çalışma Süresi</option>
+          <option value="social_media_hours">Sosyal Medya</option>
+          <option value="sleep_hours">Uyku Süresi</option>
+          <option value="motivation_level">Motivasyon</option>
+        </select>
+
+        <select id="ySelect">
+          <option value="exam_score">Sınav Puanı</option>
+          <option value="stress_level">Stres Düzeyi</option>
+          <option value="mental_health_rating">Ruh Sağlığı</option>
+          <option value="screen_time">Ekran Süresi</option>
+        </select>
+
+        <select id="chartSelect">
+          <option value="scatter">Serpilme Grafiği</option>
+          <option value="bar">Sütun Grafiği</option>
+          <option value="histogram">Histogram</option>
+          <option value="box">Kutu Grafiği</option>
+        </select>
+
+        <button onclick="generateComparison()">Grafiği Oluştur</button>
+      </div>
+
+      <div id="comparisonChart"></div>
+      <div id="comparisonResult"></div>
+    </section>
+
+    <section class="card data-chat" id="ai">
+      <h2>AI Asistan — Data</h2>
+      <p>Data; grafikler, veri görselleştirme ve veri analizi hakkında sorulara yanıt veren interaktif yardımcıdır.</p>
+
+      <div class="hazir-sorular">
+        <button onclick="hazirSoru('Histogram nedir?')">Histogram nedir?</button>
+        <button onclick="hazirSoru('Korelasyon nedir?')">Korelasyon nedir?</button>
+        <button onclick="hazirSoru('Yapay zeka nedir?')">Yapay zeka nedir?</button>
+      </div>
+
+      <div id="chatAlan"></div>
+
+      <div class="chat-giris">
+        <input type="text" id="kullaniciSorusu" placeholder="Data’ya bir soru sor...">
+        <button onclick="dataCevapla()">Gönder</button>
+      </div>
+    </section>
+
+    <section class="card" id="kaynaklar">
+      <h2>Daha Detaylı Araştırma İçin</h2>
+      <p class="small">Bu çalışmada yararlanılan temel araştırmalar, kitaplar ve veri kaynakları aşağıda listelenmiştir.</p>
+
+      <div class="kaynak-grid">
+        <a class="kaynak-kart" href="https://arxiv.org/pdf/2102.01330" target="_blank">
+          <span class="etiket-mini">Araştırma Makalesi</span>
+          <h3>AI4VIS</h3>
+          <p>Yapay zekanın veri görselleştirme alanındaki kullanımını inceleyen kapsamlı araştırma.</p>
+        </a>
+
+        <a class="kaynak-kart" href="https://www.researchgate.net/publication/377444414_AI-Enhanced_Data_Visualization_Transforming_Complex_Data_into_Actionable_Insights" target="_blank">
+          <span class="etiket-mini">Araştırma Makalesi</span>
+          <h3>AI-Enhanced Data Visualization</h3>
+          <p>Karmaşık verilerin anlamlı içgörülere dönüştürülmesini ele alan çalışma.</p>
+        </a>
+
+        <div class="kaynak-kart">
+          <span class="etiket-mini">Kitap</span>
+          <h3>The Visual Display of Quantitative Information</h3>
+          <p>Edward Tufte tarafından veri görselleştirme ilkelerini açıklayan temel eser.</p>
+        </div>
+
+        <div class="kaynak-kart">
+          <span class="etiket-mini">Kitap</span>
+          <h3>The Truthful Art</h3>
+          <p>Alberto Cairo tarafından grafikler ve veri iletişimi üzerine yazılmış çalışma.</p>
+        </div>
+
+        <a class="kaynak-kart" href="https://www.kaggle.com/datasets/aryan208/student-habits-and-academic-performance-dataset" target="_blank">
+          <span class="etiket-mini">Veri Seti</span>
+          <h3>Kaggle Veri Seti</h3>
+          <p>Öğrenci alışkanlıkları ve akademik performans verilerini içeren veri seti.</p>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  
+
+
+
+
+
+<button id="dataFloatButton" onclick="document.getElementById('ai').scrollIntoView({behavior:'smooth', block:'center'})">
+  <span class="data-bubble-img">
+    <img src="assets/data-chameleon.png" alt="Data">
+  </span>
+</button>
+
+
+
+
+</body>
+</html>

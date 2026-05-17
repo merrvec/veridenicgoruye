@@ -1,0 +1,674 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  background:
+    radial-gradient(circle at top left, rgba(255,255,255,0.95), transparent 28%),
+    radial-gradient(circle at top right, rgba(107,47,214,0.14), transparent 24%),
+    linear-gradient(135deg,#F8EDEF,#FFF7FA);
+  color:#4A2438;
+  overflow-x:hidden;
+}
+
+/* NAVBAR */
+.ust-menu{
+  position:sticky;
+  top:0;
+  z-index:9999;
+  width:100%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:28px;
+  padding:20px;
+  background:rgba(255,247,250,0.82);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid rgba(74,36,56,0.08);
+}
+
+.ust-menu a{
+  text-decoration:none;
+  color:#4A2438;
+  font-weight:700;
+  transition:.2s;
+}
+
+.ust-menu a:hover{
+  color:#6b2fd6;
+}
+
+#temaButonu{
+  width:42px;
+  height:42px;
+  border:none;
+  border-radius:50%;
+  background:white;
+  cursor:pointer;
+  box-shadow:0 10px 24px rgba(74,36,56,0.08);
+}
+
+/* HERO */
+.hero{
+  max-width:1350px;
+  margin:40px auto 30px;
+  padding:120px 40px;
+  text-align:center;
+  border-radius:42px;
+  background:rgba(255,247,250,0.78);
+  backdrop-filter:blur(18px);
+  box-shadow:0 20px 55px rgba(74,36,56,0.12);
+}
+
+.etiket{
+  display:inline-block;
+  padding:10px 18px;
+  border-radius:999px;
+  background:white;
+  color:#6b2fd6;
+  font-weight:700;
+  box-shadow:0 8px 20px rgba(74,36,56,0.08);
+}
+
+.hero h1{
+  margin:26px 0 18px;
+  padding-bottom:14px;
+  font-size:96px;
+  line-height:1.18;
+  overflow:visible;
+  background:linear-gradient(90deg,#0b55ad,#6b2fd6,#d94f8c);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+.hero p{
+  max-width:850px;
+  margin:auto;
+  font-size:24px;
+  line-height:1.7;
+}
+
+.ana-buton{
+  display:inline-block;
+  margin-top:34px;
+  padding:16px 28px;
+  border-radius:999px;
+  background:linear-gradient(135deg,#0b55ad,#6b2fd6);
+  color:white;
+  text-decoration:none;
+  font-weight:700;
+  box-shadow:0 16px 35px rgba(11,85,173,0.24);
+}
+
+/* CONTAINER */
+.container{
+  max-width:1350px;
+  margin:auto;
+  padding:30px;
+}
+
+/* CARD */
+.card,
+.kavram-kart,
+.guide-item,
+.kaynak-kart,
+.istatistik-kart{
+  background:rgba(255,247,250,0.82);
+  backdrop-filter:blur(16px);
+  border-radius:34px;
+  border:1px solid rgba(255,255,255,0.8);
+  box-shadow:0 18px 40px rgba(74,36,56,0.10);
+}
+
+.card{
+  padding:38px;
+  margin-bottom:34px;
+}
+
+.card:hover,
+.kavram-kart:hover,
+.guide-item:hover,
+.kaynak-kart:hover,
+.istatistik-kart:hover{
+  transform:translateY(-4px);
+  transition:.25s ease;
+}
+
+h2{
+  font-size:34px;
+  color:#6b2fd6;
+  margin-bottom:18px;
+}
+
+h3{
+  color:#0b55ad;
+}
+
+p,
+li{
+  font-size:19px;
+  line-height:1.8;
+}
+
+/* KAVRAMLAR */
+.kavramlar{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:24px;
+  margin-bottom:34px;
+}
+
+.kavram-kart{
+  padding:34px;
+}
+
+/* YOLCULUK */
+.yolculuk-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:24px;
+  margin-top:28px;
+}
+
+.yolculuk-adim{
+  position:relative;
+  overflow:hidden;
+  padding:28px;
+  border-radius:28px;
+  box-shadow:0 14px 30px rgba(74,36,56,0.08);
+}
+
+.yolculuk-adim:nth-child(1){
+  background:linear-gradient(135deg,#DCEBFF,#BFD8FF);
+}
+
+.yolculuk-adim:nth-child(2){
+  background:linear-gradient(135deg,#FFE2EC,#FFC7D9);
+}
+
+.yolculuk-adim:nth-child(3){
+  background:linear-gradient(135deg,#E8D9FF,#D0BBFF);
+}
+
+.yolculuk-adim:nth-child(4){
+  background:linear-gradient(135deg,#D8FFF0,#B7F5DB);
+}
+
+.yolculuk-adim span{
+  display:inline-block;
+  margin-bottom:14px;
+  padding:8px 13px;
+  border-radius:999px;
+  background:rgba(255,255,255,0.65);
+  font-weight:800;
+  color:#6b2fd6;
+}
+
+/* İSTATİSTİK */
+.istatistik-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:22px;
+}
+
+.istatistik-kart{
+  padding:30px;
+  text-align:center;
+}
+
+.istatistik-kart h3{
+  font-size:44px;
+  color:#6b2fd6;
+}
+
+/* REHBER */
+.guide-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:24px;
+}
+
+.guide-item{
+  padding:30px;
+}
+
+/* GRAFİKLER */
+.grafik-etiketleri{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-bottom:24px;
+}
+
+.grafik-etiketleri span{
+  padding:10px 16px;
+  border-radius:999px;
+  background:#f0dbe5;
+  color:#6b2fd6;
+  font-weight:700;
+}
+
+.graphs{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:28px;
+}
+
+.graphs iframe:first-child{
+  grid-column:1 / -1;
+  height:700px;
+}
+
+iframe{
+  width:100%;
+  height:560px;
+  border:none;
+  border-radius:28px;
+  background:white;
+  box-shadow:0 14px 35px rgba(74,36,56,0.08);
+}
+
+/* COMPARE */
+.compare-panel{
+  display:flex;
+  flex-wrap:wrap;
+  gap:18px;
+  margin-top:22px;
+  padding:26px;
+  border-radius:28px;
+  background:white;
+  box-shadow:inset 0 0 0 1px rgba(74,36,56,0.06);
+}
+
+select,
+button,
+input{
+  border:none;
+  border-radius:18px;
+  padding:15px 18px;
+  font-size:16px;
+}
+
+select{
+  min-width:220px;
+  background:#F8EDEF;
+}
+
+button{
+  background:linear-gradient(135deg,#0b55ad,#6b2fd6);
+  color:white;
+  cursor:pointer;
+  font-weight:700;
+}
+
+#comparisonChart{
+  margin-top:28px;
+  border-radius:28px;
+  overflow:hidden;
+  background:white;
+  box-shadow:0 16px 40px rgba(74,36,56,0.10);
+}
+
+#comparisonResult{
+  margin-top:24px;
+  padding:26px;
+  border-radius:26px;
+  background:white;
+}
+
+/* CHAT */
+.hazir-sorular{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin:20px 0;
+}
+
+.hazir-sorular button{
+  background:#f0dbe5;
+  color:#4A2438;
+}
+
+.chat-giris{
+  display:flex;
+  gap:14px;
+  margin-top:20px;
+}
+
+.chat-giris input{
+  flex:1;
+  background:white;
+}
+
+.chat-mesaj{
+  max-width:78%;
+  padding:18px 20px;
+  border-radius:24px;
+  margin-bottom:16px;
+}
+
+.bot{
+  background:#f0dbe5;
+}
+
+.kullanici{
+  background:linear-gradient(135deg,#0b55ad,#6b2fd6);
+  color:white;
+  margin-left:auto;
+}
+
+/* KAYNAK */
+.kaynak-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:24px;
+}
+
+.kaynak-kart{
+  display:block;
+  padding:30px;
+  text-decoration:none;
+  color:#4A2438;
+}
+
+.etiket-mini{
+  display:inline-block;
+  padding:8px 14px;
+  border-radius:999px;
+  background:#f0dbe5;
+  color:#6b2fd6;
+  font-size:13px;
+  font-weight:700;
+}
+
+/* DATA */
+#dataFloatButton{
+  position:fixed;
+  right:28px;
+  bottom:28px;
+  z-index:99999;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  min-width:155px;
+  height:78px;
+  padding:10px 18px;
+  border:none;
+  border-radius:999px;
+  background:linear-gradient(135deg,#8ef0c0,#6ad7ff,#d9b8ff);
+  color:#4A2438;
+  box-shadow:0 20px 45px rgba(107,47,214,0.28);
+  cursor:pointer;
+  animation:dataFloat 3s ease-in-out infinite;
+}
+
+.data-bubble-img{
+  width:58px;
+  height:58px;
+  border-radius:50%;
+  background:rgba(255,255,255,0.55);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+}
+
+.data-bubble-img img{
+  width:52px;
+  height:52px;
+  object-fit:contain;
+}
+
+@keyframes dataFloat{
+  0%,100%{ transform:translateY(0) rotate(-1deg); }
+  50%{ transform:translateY(-9px) rotate(2deg); }
+}
+
+/* DARK */
+body.karanlik{
+  background:
+    radial-gradient(circle at top right, rgba(107,47,214,0.25), transparent 24%),
+    linear-gradient(135deg,#120819,#1d0f2b,#08172f);
+  color:#F8EDEF;
+}
+
+body.karanlik .ust-menu,
+body.karanlik .hero,
+body.karanlik .card,
+body.karanlik .kavram-kart,
+body.karanlik .guide-item,
+body.karanlik .kaynak-kart,
+body.karanlik .istatistik-kart{
+  background:rgba(26,16,40,0.84);
+  color:#F8EDEF;
+}
+
+body.karanlik p,
+body.karanlik li,
+body.karanlik .ust-menu a{
+  color:#f2dce8;
+}
+
+body.karanlik select,
+body.karanlik input,
+body.karanlik .compare-panel{
+  background:#241235;
+  color:white;
+}
+
+/* MOBILE */
+@media(max-width:900px){
+
+  .hero{
+    padding:80px 24px;
+  }
+
+  .hero h1{
+    font-size:58px;
+  }
+
+  .kavramlar,
+  .graphs,
+  .istatistik-grid,
+  .guide-grid,
+  .kaynak-grid,
+  .yolculuk-grid{
+    grid-template-columns:1fr;
+  }
+
+  .container{
+    padding:18px;
+  }
+
+  #dataFloatButton{
+    right:16px;
+    bottom:16px;
+  }
+}
+
+/* DATA SADE BALONCUK */
+#dataFloatButton{
+  min-width:92px !important;
+  width:92px !important;
+  height:92px !important;
+  padding:0 !important;
+  border-radius:50% !important;
+  background:rgba(255,247,250,0.72) !important;
+  backdrop-filter:blur(18px) !important;
+  border:1px solid rgba(255,255,255,0.85) !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  overflow:hidden !important;
+}
+
+.data-bubble-img{
+  width:82px !important;
+  height:82px !important;
+  border-radius:50% !important;
+  background:
+    radial-gradient(circle at 35% 25%, rgba(255,255,255,0.9), transparent 25%),
+    rgba(255,255,255,0.35) !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+}
+
+.data-bubble-img img{
+  width:76px !important;
+  height:76px !important;
+  object-fit:contain !important;
+  transition:filter .35s ease, transform .35s ease !important;
+}
+
+/* Grafik türüne göre Data rengi */
+#dataFloatButton.data-scatter .data-bubble-img img{
+  filter:hue-rotate(120deg) saturate(1.45) brightness(1.05);
+}
+
+#dataFloatButton.data-histogram .data-bubble-img img{
+  filter:hue-rotate(300deg) saturate(1.55) brightness(1.08);
+}
+
+#dataFloatButton.data-bar .data-bubble-img img{
+  filter:hue-rotate(190deg) saturate(1.6) brightness(1.05);
+}
+
+#dataFloatButton.data-box .data-bubble-img img{
+  filter:hue-rotate(260deg) saturate(1.55) brightness(1.05);
+}
+
+/* DATA ANİMETİK BALONCUK */
+#dataFloatButton{
+  width:132px !important;
+  height:132px !important;
+  min-width:132px !important;
+  padding:0 !important;
+  border-radius:50% !important;
+  background:
+    radial-gradient(circle at 30% 22%, rgba(255,255,255,0.95), transparent 18%),
+    radial-gradient(circle at 72% 82%, rgba(255,170,230,0.45), transparent 20%),
+    linear-gradient(135deg, rgba(255,255,255,0.45), rgba(203,170,255,0.35)) !important;
+  backdrop-filter:blur(18px) saturate(1.4) !important;
+  border:2px solid rgba(255,255,255,0.85) !important;
+  box-shadow:
+    0 0 28px rgba(217,79,140,0.35),
+    0 22px 55px rgba(107,47,214,0.25),
+    inset 0 0 24px rgba(255,255,255,0.95),
+    inset 10px 12px 24px rgba(255,255,255,0.45) !important;
+  overflow:hidden !important;
+  animation:dataBubbleFloat 3.4s ease-in-out infinite !important;
+}
+
+#dataFloatButton::before{
+  content:"";
+  position:absolute;
+  inset:8px;
+  border-radius:50%;
+  background:
+    radial-gradient(circle at 30% 20%, rgba(255,255,255,0.9), transparent 18%),
+    radial-gradient(circle at 80% 78%, rgba(255,255,255,0.35), transparent 20%);
+  pointer-events:none;
+  z-index:3;
+}
+
+#dataFloatButton::after{
+  content:"";
+  position:absolute;
+  width:34px;
+  height:34px;
+  right:-14px;
+  bottom:-10px;
+  border-radius:50%;
+  background:rgba(255,255,255,0.55);
+  box-shadow:
+    22px 28px 0 -8px rgba(255,255,255,0.45),
+    38px 48px 0 -14px rgba(255,255,255,0.35);
+  z-index:4;
+}
+
+.data-bubble-img{
+  width:112px !important;
+  height:112px !important;
+  border-radius:50% !important;
+  overflow:hidden !important;
+  background:transparent !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  position:relative !important;
+  z-index:2 !important;
+}
+
+.data-bubble-img img{
+  width:118px !important;
+  height:118px !important;
+  object-fit:cover !important;
+  border-radius:50% !important;
+  transform:scale(1.18) translateY(3px) !important;
+  mix-blend-mode:multiply;
+  transition:filter .4s ease, transform .4s ease !important;
+}
+
+/* Yazı görünmesin */
+#dataFloatButton strong{
+  display:none !important;
+}
+
+/* Grafik seçimine göre baloncuk + Data rengi */
+#dataFloatButton.data-scatter{
+  box-shadow:
+    0 0 30px rgba(0,166,166,0.38),
+    0 22px 55px rgba(107,47,214,0.22),
+    inset 0 0 24px rgba(255,255,255,0.95) !important;
+}
+
+#dataFloatButton.data-scatter .data-bubble-img img{
+  filter:hue-rotate(120deg) saturate(1.5) brightness(1.08);
+}
+
+#dataFloatButton.data-histogram{
+  box-shadow:
+    0 0 30px rgba(231,84,128,0.42),
+    0 22px 55px rgba(217,79,140,0.24),
+    inset 0 0 24px rgba(255,255,255,0.95) !important;
+}
+
+#dataFloatButton.data-histogram .data-bubble-img img{
+  filter:hue-rotate(305deg) saturate(1.65) brightness(1.08);
+}
+
+#dataFloatButton.data-bar{
+  box-shadow:
+    0 0 30px rgba(77,124,255,0.42),
+    0 22px 55px rgba(11,85,173,0.25),
+    inset 0 0 24px rgba(255,255,255,0.95) !important;
+}
+
+#dataFloatButton.data-bar .data-bubble-img img{
+  filter:hue-rotate(190deg) saturate(1.7) brightness(1.08);
+}
+
+#dataFloatButton.data-box{
+  box-shadow:
+    0 0 30px rgba(139,92,246,0.45),
+    0 22px 55px rgba(107,47,214,0.26),
+    inset 0 0 24px rgba(255,255,255,0.95) !important;
+}
+
+#dataFloatButton.data-box .data-bubble-img img{
+  filter:hue-rotate(260deg) saturate(1.65) brightness(1.08);
+}
+
+@keyframes dataBubbleFloat{
+  0%,100%{
+    transform:translateY(0) rotate(-1deg) scale(1);
+  }
+  50%{
+    transform:translateY(-10px) rotate(2deg) scale(1.03);
+  }
+}
