@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>VeriViz AI</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h1>VeriViz AI</h1>
+
+    <p class="subtitle">
+      Yapay Zekada Veri Görselleştirmenin Rolü
+    </p>
+
+    <section class="card">
+      <h2>Proje Hakkında</h2>
+
+      <p>
+        Bu çalışma, veri görselleştirmenin yapay zeka sistemlerindeki rolünü
+        istatistiksel analizler ve interaktif grafikler aracılığıyla incelemektedir.
+      </p>
+    </section>
+
+    <section class="card">
+
+      <h2>İnteraktif Grafikler</h2>
+
+      <div class="graphs">
+
+        <iframe src="graphs/heatmap.html"></iframe>
+
+        <iframe src="graphs/scatter.html"></iframe>
+
+      </div>
+
+    </section>
+
+    <section class="card">
+
+      <h2>Temel Bulgular</h2>
+
+      <ul>
+        <li>Çalışma süresi ile sınav başarısı arasında pozitif ilişki gözlemlenmiştir.</li>
+
+        <li>Veri görselleştirme teknikleri karmaşık ilişkilerin yorumlanmasını kolaylaştırmıştır.</li>
+
+        <li>Heatmap analizleri değişkenler arasındaki korelasyonları ortaya koymuştur.</li>
+      </ul>
+
+    </section>
+
+  </div>
+
+</body>
+
+</ht
