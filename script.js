@@ -1,3 +1,5 @@
+let studentData = [];
+
 const variableNames = {
   study_hours_per_day: "Çalışma Süresi",
   social_media_hours: "Sosyal Medya Süresi",
@@ -15,6 +17,34 @@ const variableNames = {
   exam_score: "Sınav Puanı"
 };
 
+function csvToJson(csv){
+  const lines = csv.trim().split(/\r?\n/);
+  const headers = lines[0].split(",").map(h => h.trim());
+
+  return lines.slice(1).map(line => {
+    const values = line.split(",");
+    const obj = {};
+
+    headers.forEach((h, i) => {
+      const value = values[i]?.trim();
+      const num = Number(value);
+      obj[h] = value !== "" && !isNaN(num) ? num : value;
+    });
+
+    return obj;
+  });
+}
+
+fetch("data/student.csv")
+  .then(response => response.text())
+  .then(csv => {
+    studentData = csvToJson(csv);
+    console.log("Veri yüklendi:", studentData.length);
+  })
+  .catch(error => {
+    console.error("Veri yüklenemedi:", error);
+  });
+
 function grafikRenginiAl(tur){
   if(tur === "histogram") return "#E75480";
   if(tur === "bar") return "#0B55AD";
@@ -22,59 +52,94 @@ function grafikRenginiAl(tur){
   return "#00A6A6";
 }
 
+function dataBalonRenginiDegistir(tur){
+  const data = document.getElementById("dataFloatButton");
+  if(!data) return;
+
+  data.classList.remove("data-scatter", "data-histogram", "data-bar", "data-box");
+
+  if(tur === "histogram") data.classList.add("data-histogram");
+  else if(tur === "bar") data.classList.add("data-bar");
+  else if(tur === "box") data.classList.add("data-box");
+  else data.classList.add("data-scatter");
+}
+
 function generateComparison(){
+  if(studentData.length === 0){
+    alert("Veri henüz yüklenmedi. Lütfen birkaç saniye bekleyip tekrar deneyin.");
+    return;
+  }
+
   const x = document.getElementById("xSelect").value;
   const y = document.getElementById("ySelect").value;
   const chartType = document.getElementById("chartSelect").value;
 
-  const xData = studentData.map(d => d[x]);
-  const yData = studentData.map(d => d[y]);
+  dataBalonRenginiDegistir(chartType);
+
+  const xData = studentData.map(d => d[x]).filter(v => v !== undefined && v !== null && v !== "");
+  const yData = studentData.map(d => d[y]).filter(v => v !== undefined && v !== null && v !== "");
 
   let trace;
 
   if(chartType === "scatter"){
     trace = {
-      x:xData,
-      y:yData,
-      mode:"markers",
-      type:"scatter",
-      marker:{ size:9, opacity:0.78, color:grafikRenginiAl(chartType) }
+      x: studentData.map(d => d[x]),
+      y: studentData.map(d => d[y]),
+      mode: "markers",
+      type: "scatter",
+      marker: {
+        size: 9,
+        opacity: 0.78,
+        color: grafikRenginiAl(chartType)
+      }
     };
   }
 
   if(chartType === "bar"){
     trace = {
-      x:xData,
-      y:yData,
-      type:"bar",
-      marker:{ color:grafikRenginiAl(chartType) }
+      x: studentData.map(d => d[x]),
+      y: studentData.map(d => d[y]),
+      type: "bar",
+      marker: {
+        color: grafikRenginiAl(chartType)
+      }
     };
   }
 
   if(chartType === "histogram"){
     trace = {
-      x:xData,
-      type:"histogram",
-      marker:{ color:grafikRenginiAl(chartType) }
+      x: xData,
+      type: "histogram",
+      marker: {
+        color: grafikRenginiAl(chartType)
+      }
     };
   }
 
   if(chartType === "box"){
     trace = {
-      y:yData,
-      type:"box",
-      boxpoints:"outliers",
-      marker:{ color:grafikRenginiAl(chartType) }
+      y: yData,
+      type: "box",
+      boxpoints: "outliers",
+      marker: {
+        color: grafikRenginiAl(chartType)
+      }
     };
   }
 
   const layout = {
     title: variableNames[x] + " ve " + variableNames[y] + " Karşılaştırması",
-    paper_bgcolor:"#FFF7FA",
-    plot_bgcolor:"#FFF7FA",
-    font:{ color:"#4A2438" },
-    xaxis:{ title:variableNames[x], gridcolor:"rgba(74,36,56,0.15)" },
-    yaxis:{ title:variableNames[y], gridcolor:"rgba(74,36,56,0.15)" }
+    paper_bgcolor: "#FFF7FA",
+    plot_bgcolor: "#FFF7FA",
+    font: { color: "#4A2438" },
+    xaxis: {
+      title: variableNames[x],
+      gridcolor: "rgba(74,36,56,0.15)"
+    },
+    yaxis: {
+      title: variableNames[y],
+      gridcolor: "rgba(74,36,56,0.15)"
+    }
   };
 
   Plotly.newPlot("comparisonChart", [trace], layout, {responsive:true});
@@ -157,57 +222,6 @@ document.addEventListener("DOMContentLoaded", function(){
     });
   }
 
-  const grafikSecici = document.getElementById("chartSelect");
-
-  if(grafikSecici){
-    grafikSecici.addEventListener("change", function(){
-      generateComparison();
-    });
-  }
-});
-
-function dataButonRenginiDegistir(tur){
-  const data = document.getElementById("dataFloatButton");
-  if(!data) return;
-
-  data.classList.remove("data-scatter", "data-histogram", "data-bar", "data-box");
-
-  if(tur === "histogram"){
-    data.classList.add("data-histogram");
-  } else if(tur === "bar"){
-    data.classList.add("data-bar");
-  } else if(tur === "box"){
-    data.classList.add("data-box");
-  } else {
-    data.classList.add("data-scatter");
-  }
-}
-
-document.addEventListener("DOMContentLoaded", function(){
-  const grafikSecici = document.getElementById("chartSelect");
-
-  if(grafikSecici){
-    dataButonRenginiDegistir(grafikSecici.value);
-
-    grafikSecici.addEventListener("change", function(){
-      dataButonRenginiDegistir(this.value);
-    });
-  }
-});
-
-function dataBalonRenginiDegistir(tur){
-  const data = document.getElementById("dataFloatButton");
-  if(!data) return;
-
-  data.classList.remove("data-scatter", "data-histogram", "data-bar", "data-box");
-
-  if(tur === "histogram") data.classList.add("data-histogram");
-  else if(tur === "bar") data.classList.add("data-bar");
-  else if(tur === "box") data.classList.add("data-box");
-  else data.classList.add("data-scatter");
-}
-
-document.addEventListener("DOMContentLoaded", function(){
   const secici = document.getElementById("chartSelect");
 
   if(secici){
@@ -215,6 +229,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
     secici.addEventListener("change", function(){
       dataBalonRenginiDegistir(this.value);
+      generateComparison();
     });
   }
 });
